@@ -6,7 +6,7 @@ pipeline {
         GIT_EMAIL = "rajashekar.samala153@gmail.com"
         GIT_USER_NAME = "Samalarajashekhar"
         IMAGE_NAME = "adservice"
-        REPO_URL = "242201296943.dkr.ecr.us-east-1.amazonaws.com/adservice"
+        REPO_URL = "072160582565.dkr.ecr.us-east-1.amazonaws.com/adservice"
         YAML_FILE = "adservice.yaml"
     }
 
