@@ -45,7 +45,7 @@ pipeline {
                 GIT_EMAIL = "rajashekar.samala153@gmail.com"
                 GIT_USER_NAME = "Samalarajashekhar"
                 IMAGE_NAME = "paymentservice"
-                REPO_URL = "072160582565.dkr.ecr.us-east-1.amazonaws.com/paymentservice"
+                REPO_URL = "0721605825653.dkr.ecr.us-east-1.amazonaws.com/paymentservice"
                 YAML_FILE = "paymentservice.yaml"
             }
             steps {
