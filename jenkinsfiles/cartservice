@@ -50,8 +50,12 @@ pipeline {
             }
             steps {
                 dir('kubernetes-files') {
-                    withCredentials([string(credentialsId: 'my-git-pattoken', variable: 'git_token')]) {
-                        sh '''
+                     withCredentials([usernamePassword(
+                     credentialsId: 'my-git-pattoken',
+                     usernameVariable: 'GIT_USERNAME',
+                     passwordVariable: 'GIT_TOKEN'
+                     )])  {
+                         sh '''
                             git config user.email "${GIT_EMAIL}"
                             git config user.name "${GIT_USER_NAME}"
                             BUILD_NUMBER=${BUILD_NUMBER}
@@ -61,7 +65,7 @@ pipeline {
                             sed -i "s#image:.*#image: ${REPO_URL}:$BUILD_NUMBER#g" ${YAML_FILE}
                             git add .
                             git commit -m "Update ${IMAGE_NAME} Image to version \${BUILD_NUMBER}"
-                            git push https://${git_token}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME} HEAD:master
+                            git push https://${GIT_USERNAME}:${GIT_TOKEN}@github.com/${GIT_USER_NAME}/${GIT_REPO_NAME}.git HEAD:master
         
                         '''
                     }
