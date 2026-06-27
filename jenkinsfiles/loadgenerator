@@ -10,6 +10,7 @@ pipeline {
         stage('Checkout from Git') {
             steps {
                 git branch: 'master', url: 'https://github.com/Samalarajashekhar/Microservices-E-Commerce-eks-project.git'
+            }
         }
         stage("Docker Image Build") {
             steps {
